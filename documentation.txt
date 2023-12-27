@@ -1,0 +1,14 @@
+
+
+To get post featured image
+{{ $the::media($post->featured_image) }}
+
+To get post title
+{{ $post->name ?? NULL }}
+
+To get post custom fields
+{{ $Post::customField('sub_title', $post->id) ?? NULL }}
+
+
+To route a single post
+{{ route('frontend_page', $post->slug) }}
