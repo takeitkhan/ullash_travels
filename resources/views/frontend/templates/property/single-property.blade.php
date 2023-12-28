@@ -1,36 +1,26 @@
 <div id="content">
     <div class="container">
+        @php
+            //70|71|72|73|74
+            $datas = $Post::customField('property_images', $page->id);
+            $image_ids = explode('|', $datas);
+        @endphp
 
-        <div class="row cr mb-3">
-            <div class="col-lg-6  service-item mb-2">
-                <div class="card p-0 bg-white xshadow border-0">
-                    <img class="h-100" style="object-fit: cover"
-                         src="{{ $the::media($page->featured_image) }}"
-                         alt="">
+        <div class="row masonry mb-5" data-masonry='{"percentPosition": true }'>
+            <div class="col-sm-6 col-lg-4 mb-4">
+                <div class="card">
+                    <img
+                        src="{{ $the::media($page->featured_image) }}"/>
                 </div>
             </div>
-            @php
-                //70|71|72|73|74
-                $datas = $Post::customField('property_images', $page->id);
-                $image_ids = explode('|', $datas);
-            @endphp
-
-            <div class="col-lg-6">
-                <div class="row cr">
-                    @foreach($image_ids as $k => $img)
-                        @if($k <= 3)
-                            <div class="col-lg-6 col-md-6 service-item d-flex  mb-2">
-                                <div class="card p-0 bg-white xshadow border-0">
-                                    <img class="img-fluid"
-                                         src="{{ $the::media($img) }}"
-                                         alt="">
-                                </div>
-                            </div>
-                        @endif
-                    @endforeach
-
+            @foreach($image_ids as $k => $img)
+                <div class="col-sm-6 col-lg-4 mb-4">
+                    <div class="card">
+                        <img
+                            src="{{ $the::media($img) }}"/>
+                    </div>
                 </div>
-            </div>
+            @endforeach
         </div>
 
         <div class="row mb-3">

@@ -4943,3 +4943,13 @@ footer {
 footer a, footer a:hover {
     color: #88C425;
 }
+
+
+.masonry {
+    display: flex;
+    flex-flow: column wrap;
+    max-height: 800px;
+    margin-left: -8px; /* Adjustment for the gutter */
+    width: 100%;
+    overflow: hidden;
+}
